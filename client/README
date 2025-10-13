@@ -1,0 +1,32 @@
+# Library Book Project
+
+## Description
+Library Book est une application full-stack (React + Flask) qui permet de gérer une bibliothèque simple.  
+L'application permet aux utilisateurs de :
+
+- Consulter la liste des livres et leurs auteurs.
+- Ajouter de nouveaux livres et auteurs.
+- Associer des livres à des utilisateurs (emprunts).
+- Gérer les informations via un backend Flask et une interface React.
+
+## Structure du projet
+## Technologies utilisées
+
+- **Frontend** : React, React Router, Formik, Yup
+- **Backend** : Flask, Flask-RESTful, Flask-CORS, Flask-SQLAlchemy, Flask-Migrate
+- **Base de données** : SQLite
+
+## Installation
+
+### Backend
+```bash
+cd server
+pipenv install
+pipenv shell
+python app.py
+
+
+cd client
+npm install
+npm start
+

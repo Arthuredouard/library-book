@@ -1,0 +1,64 @@
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+
+function BorrowForm() {
+  const formik = useFormik({
+    initialValues: {
+      user_id: '',
+      book_id: '',
+      borrow_date: '',
+    },
+    validationSchema: Yup.object({
+      user_id: Yup.number()
+        .required('User ID is required')
+        .typeError('Must be a number'),
+      book_id: Yup.number()
+        .required('Book ID is required')
+        .typeError('Must be a number'),
+      borrow_date: Yup.string()
+        .required('Borrow date is required')
+        .matches(/^\d{4}-\d{2}-\d{2}$/, 'Date must be in YYYY-MM-DD format'),
+    }),
+    onSubmit: (values) => {
+      fetch('/borrowed_books', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      })
+        .then(res => res.json())
+        .then(data => console.log('Borrowed:', data));
+    },
+  });
+
+  return (
+    <form onSubmit={formik.handleSubmit}>
+      <input
+        name="user_id"
+        placeholder="User ID"
+        value={formik.values.user_id}
+        onChange={formik.handleChange}
+      />
+      {formik.errors.user_id && <div>{formik.errors.user_id}</div>}
+
+      <input
+        name="book_id"
+        placeholder="Book ID"
+        value={formik.values.book_id}
+        onChange={formik.handleChange}
+      />
+      {formik.errors.book_id && <div>{formik.errors.book_id}</div>}
+
+      <input
+        name="borrow_date"
+        placeholder="YYYY-MM-DD"
+        value={formik.values.borrow_date}
+        onChange={formik.handleChange}
+      />
+      {formik.errors.borrow_date && <div>{formik.errors.borrow_date}</div>}
+
+      <button type="submit">Borrow Book</button>
+    </form>
+  );
+}
+
+export default BorrowForm;
