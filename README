@@ -1,4 +1,4 @@
-# 📚 Library Book — Gestion de livres et d’auteurs haïtiens
+#  Library Book — Gestion de livres et d’auteurs haïtiens
 
 **Library Book** est une application web moderne conçue pour la **gestion et la valorisation des livres et auteurs haïtiens**.  
 Elle combine un **backend Flask (Python)** et un **frontend React (JavaScript)** afin d’offrir une expérience fluide, performante et intuitive aux utilisateurs souhaitant consulter, ajouter ou gérer des œuvres littéraires d’Haïti.
