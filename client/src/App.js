@@ -1,9 +1,9 @@
-// client/src/App.js
+ // client/src/App.js
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './NavBar';
 import Books from './Books';
-import Author from './Author';
+import Authors from './Author'; 
 import Borrow from './Borrow';
 import './App.css'; 
 
@@ -14,7 +14,7 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/books" element={<Books />} />
-          <Route path="/author" element={<Authors />} />
+          <Route path="/author" element={<Authors />} /> {/* Correction ici */}
           <Route path="/borrow" element={<Borrow />} />
         </Routes>
       </div>
@@ -23,5 +23,3 @@ function App() {
 }
 
 export default App;
-
-
